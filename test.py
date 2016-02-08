@@ -1,5 +1,6 @@
 from app import app
 import unittest
+import redis
 
 class AppTestCase(unittest.TestCase):
 
@@ -10,7 +11,6 @@ class AppTestCase(unittest.TestCase):
             cookies = f.read().split('%')
             cookies = [cookie.strip() for cookie in cookies]
         self.cookies = cookies
-
 
     def test_response(self):
         resp = self.app.get('/')
