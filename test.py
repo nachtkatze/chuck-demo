@@ -1,6 +1,5 @@
 from app import app
 import unittest
-import redis
 
 class AppTestCase(unittest.TestCase):
 
