@@ -1,5 +1,4 @@
 from flask import Flask
-import os
 import random
 import ConfigParser
 import redis
@@ -17,11 +16,7 @@ host = config.get('Redis','host')
 port = config.get('Redis','port')
 db = config.get('Redis','db')
 
-print(host,port,db)
-print(os.environ.get('REDIS_URL'))
-
 r = redis.StrictRedis(host=host, port=port, db=db)
-# r = redis.Redis(url=os.environ.get('REDIS_URL'))
 
 for i, cookie in enumerate(cookies):
     r.set(i, cookie.strip())
