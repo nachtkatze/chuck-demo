@@ -20,7 +20,8 @@ db = os.environ.get(config.get('Redis','db'))
 print(host,port,db)
 print(os.environ.get('REDIS_URL'))
 
-r = redis.StrictRedis(host=host, port=port, db=db)
+# r = redis.StrictRedis(host=host, port=port, db=db)
+r = redis.Redis(url=os.environ.get('REDIS_URL'))
 
 for i, cookie in enumerate(cookies):
     r.set(i, cookie.strip())
