@@ -13,15 +13,15 @@ with open(config.get('Cookies', 'cookies'),'r') as f:
     cookies = f.read().split('%')
 l = len(cookies)
 
-host = os.environ.get(config.get('Redis','host'))
-port = os.environ.get(config.get('Redis','port'))
-db = os.environ.get(config.get('Redis','db'))
+host = config.get('Redis','host')
+port = config.get('Redis','port')
+db = config.get('Redis','db')
 
 print(host,port,db)
 print(os.environ.get('REDIS_URL'))
 
-# r = redis.StrictRedis(host=host, port=port, db=db)
-r = redis.Redis(url=os.environ.get('REDIS_URL'))
+r = redis.StrictRedis(host=host, port=port, db=db)
+# r = redis.Redis(url=os.environ.get('REDIS_URL'))
 
 for i, cookie in enumerate(cookies):
     r.set(i, cookie.strip())
