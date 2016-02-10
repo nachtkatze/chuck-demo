@@ -1,5 +1,5 @@
 from flask import Flask
-from urlparse import urlparser
+from urlparse import urlparse
 import os
 import random
 import ConfigParser
