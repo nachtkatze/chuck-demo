@@ -14,10 +14,6 @@ with open(config.get('Cookies', 'cookies'),'r') as f:
     cookies = f.read().split('%')
 l = len(cookies)
 
-# host = config.get('Redis','host')
-# port = config.get('Redis','port')
-# db = config.get('Redis','db')
-
 redis_url = os.environ.get('REDIS_URL')
 redis_url = urlparse(redis_url)
 
